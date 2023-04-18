@@ -9,7 +9,7 @@ on:
         default: main
   push:
     branches:
-      - ${{ inputs.branch }}
+      - ${{ workflow_dispatch.inputs.branch }}
     tags-ignore:
       - '**'
 
