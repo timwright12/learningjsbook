@@ -9,7 +9,7 @@ on:
         default: main
   push:
     branches:
-      - ${{ github.event.inputs.branch }}
+      - ${{ inputs.branch }}
     tags-ignore:
       - '**'
 
