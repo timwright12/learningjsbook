@@ -2,9 +2,14 @@ name: Build
 
 on:
   workflow_dispatch:
+    inputs:
+      branch:
+        description: Choose a branch
+        required: true
+        default: main
   push:
     branches:
-      - '**'
+      - ${{ env.BRANCH }}
     tags-ignore:
       - '**'
 
