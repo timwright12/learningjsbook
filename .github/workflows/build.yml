@@ -9,9 +9,12 @@ on:
         default: main
   push:
     branches:
-      - ${{ github.event.inputs.branch }}
+      - '**'
     tags-ignore:
       - '**'
+
+env:
+  BRANCH: ${{ github.event.inputs.branch }}
 
 jobs:
   build:
@@ -23,3 +26,8 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+
+      - name: test branch     
+        if: ${{ env.BRANCH == 'main' }}
+        run: |
+          echo "Main branch" 
